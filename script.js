@@ -253,115 +253,50 @@ Irma
 Anton
 Stina
 `;
-// Remember to add Isabellas last name initial
-const kb = `
-Wael
-Julia
-Ludwig
-Leon
-Vidar
-Ava
-Pelle
-Benjamin
-Joseph
-David
-Irma
-Tova-Li
-Frank
-Freja
-Victoria
-Felicia
-Elise
-Idun
-Luna
-Max
-Tejas
-Vilma
-Emilia
-Ingvar
-Axel
-Levi
-Ruth
-Liw
-Clara
-`;
-const kc = `
-Nils
-Cleo
-Greta A
-Tyko
-Majken
-Elsa
-Lily
-Greta G
-Diva
-Holly
-Nma
-Jack J
-Meya-Lo
-Frans
-Petter
-Bianca
-Tristan
-Gabriel
-Elliot
-Ines
-Ebbot
-Loe
-Karla
-Jack T
-Raphael
-Juli
-Otto
-Otis
-Alfred
-David`;
-const kd = `
-Fatma	
-Adele	
-Adrian	
-Sam	
-Åke	
-Filippa	
-Seth	
-Idun R	
-Alice	
-Julia	
-Isabella DO
-Ebbot	
-Charlie	
-Albert	
-Elise	
-John	
-Elisabet	
-Harald	
-Sara	
-August	
-Ebba	
-Elias	
-Vilma	
-Idun C	
-Niels	
-Bo	
-Nathan	
-Lilly	
-Isabella OT	
-Theo
-`;
 
-document.querySelector(".btn-a").addEventListener("click", function () {
-  document.getElementsByTagName("textarea")[0].value = ka;
-  createWheel();
-});
-document.querySelector(".btn-b").addEventListener("click", function () {
-  document.getElementsByTagName("textarea")[0].value = kb;
-  createWheel();
-});
-document.querySelector(".btn-c").addEventListener("click", function () {
-  document.getElementsByTagName("textarea")[0].value = kc;
-  createWheel();
-});
-document.querySelector(".btn-d").addEventListener("click", function () {
-  document.getElementsByTagName("textarea")[0].value = kd;
-  createWheel();
-});
+let buttonCounter = 0; // Initialize the counter
+
+const createNewBtn = function (btnText, list) {
+  // Create a new button element
+  const newButton = document.createElement("button");
+
+  // Generate the dynamic class name using the counter
+  const className = `btn-${buttonCounter}`;
+
+  // Add classes to the button
+  newButton.classList.add("btn", className);
+
+  // Set the button text
+  newButton.textContent = btnText;
+
+  // Append the new button to the btn-group-options div
+  document.querySelector(".btn-group-options").appendChild(newButton);
+
+  // Add event listener using the dynamic class name
+  newButton.addEventListener("click", function () {
+    document.getElementsByTagName("textarea")[0].value = list.trim();
+    createWheel(); // Assuming createWheel() is defined elsewhere
+  });
+
+  // Increment the counter for the next button
+  buttonCounter++;
+};
+
+// Create buttons with incrementing class names
+createNewBtn(
+  "Button 1",
+  `
+  Bulbasaur
+  Charmander
+  Squirtle
+  `
+);
+
+createNewBtn(
+  "Button 2",
+  `
+  Pikachu
+  Raichu
+  Jigglypuff
+  `
+);
