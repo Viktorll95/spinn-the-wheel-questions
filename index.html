@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin the Wheel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1 id="title">Spinn the wheel!</h1>
+    </div>
+
+    <div class="first-container">
+      <div class="wheel">
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <div class="center-circle btn" id="center-circle" onclick="spin()">
+          <p class="spin">SPIN!</p>
+          <div class="triangle"></div>
+        </div>
+      </div>
+
+      <div class="wheel-info">
+        <p id="winner">NONE</p>
+        <div class="btn-group-after-spin hidden">
+          <button id="btn-remove-name" class="btn">Remove</button>
+          <button id="btn-spin-again" class="btn">Spin again</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Would be fun to add music to the page at some point: -->
+    <div class="btn-group-options">
+      <button class="btn btn-a">A</button>
+      <button class="btn btn-b">B</button>
+      <button class="btn btn-c">C</button>
+      <button class="btn btn-d">D</button>
+    </div>
+    <div class="input-area">
+      <textarea rows="30" cols="30" onchange="createWheel()">
+        Varför var Darwin känd?
+Vad är naturligt urval?
+Vad är en art?
+Vad är evolution?
+Vad var det första livet?
+Vad är en organism?
+Vad är en mutation?
+Hur påverkar mutationer liv?
+Vad betyder anpassning?
+Ge exempel på en anpassning
+Vad är gener?
+Hur ärver vi våra egenskaper?
+Var började livet?
+Hur uppstår nya arter?
+Vilka är kriterierna för liv?
+Vilken är livets minsta byggsten?
+</textarea
+      >
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
